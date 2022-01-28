@@ -1,0 +1,13 @@
+# python  AD域内网下走pac脚本访问外网,用到模块pypac
+
+from pypac import PACSession,get_pac
+
+pac = get_pac(url='http://10.18.88.118/proxy.pac')
+st = PACSession(pac)
+result = st.get('http://www.baidu.com')
+print(result.text)
+
+
+# python  AD域下爬取内网
+response = requests.get(website_url, auth=HttpNtlmAuth('domain\\user', 'pwd'))
+print(response.text)
