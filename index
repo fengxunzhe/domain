@@ -11,3 +11,15 @@ print(result.text)
 # python  AD域下爬取内网
 response = requests.get(website_url, auth=HttpNtlmAuth('domain\\user', 'pwd'))
 print(response.text)
+
+
+# 证书错误  这里是由于这个网页的证书没有被官方CA机构信任，所以这里会出现证书验证的错误   证书校验 false  verify=False
+# requests.exceptions.SSLError: HTTPSConnectionPool(host='www.pearvideo.com', port=443): Max retries exceeded with url: /videoStatus.jsp?contId=1750709&mrd=0.30104970988192226 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self signed certificate in certificate chain (_ssl.c:1056)')))
+
+r = requests.get('https://www.12306.cn', verify=False)
+
+# 安全警告  忽略    logging.captureWarnings(True)
+C:\Program Files\Python37\lib\site-packages\urllib3\connectionpool.py:1020: InsecureRequestWarning: Unverified HTTPS request is being made to host '172.21.1.30'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning,
+  
+  logging.captureWarnings(True)
