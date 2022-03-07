@@ -1,12 +1,12 @@
 #python AD网走脚本访问外网内域模块pypac
 #第一种: 使用pypac调用本地自动代理的文件pac格式
 从 pypac 导入 PACSession，get_pac 
-
-pac = get_pac(url='http://10.18.88.118/proxy.pac')
-st = PACSession(pac)
-result = st.get('http://www.baidu.com')
-print(result.text)
-
+...
+  pac = get_pac(url='http://10.18.88.118/proxy.pac')
+  st = PACSession(pac)
+  result = st.get('http://www.baidu.com')
+  print(result.text)
+...
 #第二种:查看文件pac走的代理地址：PAC文件
 
                     function FindProxyForURL(url, host)
